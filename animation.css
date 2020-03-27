@@ -1,0 +1,70 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(15, 15, 15);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    font-size: 24px
+
+}
+
+.animation-box {
+    background-color: royalblue;
+    /* width: 7rem; */
+    height: 7rem;
+    cursor: pointer;
+    /* z-index: -1; */
+
+}
+h1 {
+    margin: auto;
+    /* color: white !important; */
+}
+.name, h1 {
+    letter-spacing: 15px;
+    color: rgb(15, 15, 15);
+    padding: 2rem;
+    align-self: center;
+    justify-self: center;
+    text-align: center;
+    cursor: default;
+    z-index: 20;
+}
+.animation-box {
+    text-align: center;
+    width: 1px;
+    animation-name: animate1;
+    animation-duration: 4s;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    padding-left: 100px;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    /* padding-right: 100px; */
+
+}
+
+@keyframes animate1 {
+    50% {
+        width: 100vw;
+    }
+    75% {
+        width: 100vw;
+        transform: translate(0,0)
+    }
+    /* 76% {
+        transform: translateX(42px)
+    }
+    85% {
+        transform: translateX(500px);
+    } */
+    100% {
+        transform: translateX(1050px);
+        width: 0;
+    }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css file/presentation.css">
+    <title>Presentation</title>
+</head>
+<body>
+    <div class="page" id="page-1">
+        <h1>Welcome to my presentation</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nihil, quod ex, architecto molestias facilis explicabo laudantium vitae consectetur repellendus commodi illo labore eveniet alias pariatur culpa accusantium at quibusdam!</p>
+        <div class="btns">
+        <a href="#page-2" id="pg-2" class="nxt btn">Next Page</a>
+        </div>
+    </div>
+    <div class="page" id="page-2">
+        <h1>Page 2</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nihil, quod ex, architecto molestias facilis explicabo laudantium vitae consectetur repellendus commodi illo labore eveniet alias pariatur culpa accusantium at quibusdam!</p>
+        <div class="btns">
+        <a href="#page-1" id="pg-1" class="prev btn">Previous Page</a>
+        <a href="#page-3" id="pg-3" class="nxt btn">Next Page</a>
+        </div>
+    </div>
+    <div class="page" id="page-3">
+        <h1>Page 3</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nihil, quod ex, architecto molestias facilis explicabo laudantium vitae consectetur repellendus commodi illo labore eveniet alias pariatur culpa accusantium at quibusdam!</p>
+        <div class="btns">
+        <a href="#page-2" id="pg-2" class="prev btn">Previous Page</a>
+        <a href="#page-4" id="pg-4" class="nxt btn">Next Page</a>
+        </div>
+    </div>
+    <div class="page" id="page-4">
+        <h1>Page 4</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit nihil, quod ex, architecto molestias facilis explicabo laudantium vitae consectetur repellendus commodi illo labore eveniet alias pariatur culpa accusantium at quibusdam!</p>
+        <div class="btns">
+        <a href="#page-3" id="pg-3" class="prev btn">Previous Page</a>
+        </div>
+    </div>
+
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  
+    <script>
+      // Smooth Scrolling
+      $('.btn').on('click', function(event) {
+          if (this.hash !== '') {
+            event.preventDefault();
+            const hash = this.hash;
+            $('html, body').animate(
+              {
+                scrollTop: $(hash).offset().top
+              },
+              800
+            );
+          }
+        });
+    </script>
+</body>
+</html>

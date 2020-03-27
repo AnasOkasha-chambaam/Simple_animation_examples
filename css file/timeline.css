@@ -1,0 +1,155 @@
+:root {
+    --py-color: rgb(221, 68, 68);
+    /* --py-color: rgb(231, 231, 231); */
+    --sec-color: rgb(191, 38, 38);
+    --sp-color: rgb(44, 44, 44);
+    --max-width: 1100px; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition-property: transform, opacity, visibility;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    background-color: var(--sec-color);
+    padding-bottom: 50px;
+    overflow-x: hidden;
+    line-height: 1.4;
+}
+
+.main-hd {
+    height: 160px;
+    padding: 40px;
+    color: var(--sp-color);
+    background-color: var(--py-color);
+}
+
+.main-hd .hd-txt {
+    margin: auto;
+    text-align: center;
+}
+
+.timeline {
+    padding: 30px;
+    color: var(--sp-color);
+    background-color: var(--sec-color);
+}
+
+/* Timeline Style */
+.timeline ul {
+    padding: 50px 0;
+}
+
+.timeline ul li {
+    position: relative;
+    width: 6px;
+    background-color: var(--sp-color);
+    padding-top: 50px;
+    margin: auto;
+    list-style: none;
+}
+
+.timeline ul li div {
+    width: 400px;
+    padding: 20px;
+    /* padding-bottom: 40px; */
+    background-color: var(--py-color);
+    position: relative;
+    /* margin-bottom: -30px; */
+    visibility: hidden;
+    opacity: 0;
+    border-radius: 10px;
+}
+
+.timeline ul li:nth-child(odd) div {
+    left: 30px;
+    transform: translate(200px, 0)
+}
+
+.timeline ul li:nth-child(even) div {
+    right: 425px;
+    transform: translate(-200px, 0)
+}
+
+.timeline ul li:after {
+    content: '';
+    background-color: var(--sp-color);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    border-radius: 100%;
+    transform: translateX(-50%);
+    z-index: 1;
+    bottom: 3px;
+    transition-property: background-color;
+    transition-duration: 1s;
+
+}
+
+/* Arrows */
+.timeline ul li div::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    bottom: 6px;
+    left: -10px;
+    border-width: 8px 16px 8px 0px;
+    border-color: transparent var(--py-color) transparent transparent;
+}
+
+.timeline ul li:nth-child(even) div::before {
+    right: -10px !important;
+    left: unset;
+    border-width: 8px 0px 8px 16px;
+    border-color: transparent transparent transparent var(--py-color);
+
+}
+
+@media(max-width: 900px) {
+    .timeline ul li div {
+        width: 250px;
+    }
+    .timeline ul li:nth-child(even) div {
+        right: 275px;
+    }
+}
+
+@media(max-width: 600px) {
+    .timeline ul li {
+        margin-left: 6px;
+    }
+    .timeline ul li:nth-child(even) div {
+        right: unset;
+        left: 25px;
+    }
+    .timeline ul li:nth-child(even) div::before {
+        right: unset;
+        left: -10px;
+        border-width: 8px 16px 8px 0px;
+        border-color: transparent var(--py-color) transparent transparent;
+    }
+    .timeline ul li div {
+        width: calc( 100vw - 90px);
+    }
+}
+
+.timeline ul li.show div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.timeline ul li.show::after {
+    background-color: var(--py-color);
+}
